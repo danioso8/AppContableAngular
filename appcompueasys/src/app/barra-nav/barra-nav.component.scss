@@ -1,0 +1,60 @@
+
+
+.nav{
+
+  justify-content: center;
+  display: inline-flex;
+  background-image: radial-gradient(circle at 55.42% 50%, #273435 0, #222a29 16.67%, #1a1b1b 33.33%, #0e0003 50%, #000000 66.67%, #000000 83.33%, #000000 100%);
+  width: 100%;
+  height: 70px;
+
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.tittle{
+  top: 20px;
+  position: absolute;
+  left: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(244, 247, 240);
+  background-color: rgb(237, 243, 234);
+  height: 1px;
+
+}
+.tittle span{
+  color: rgb(132, 223, 14);
+  font-size: 35px;
+
+}
+.nav a{
+
+  margin: 20px;
+  text-decoration: none;
+  color: rgb(242, 247, 241);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  color: rgb(246, 248, 244);
+
+  font-family: 'Times New Roman', Times, serif;
+  margin: 25px;
+  font-size: 20px;
+
+
+
+}
+button:hover{
+
+  font-weight: bold;
+}
+.buttonNegrita {
+  font-weight: bold;
+  color: rgb(171, 228, 15);
+}
+

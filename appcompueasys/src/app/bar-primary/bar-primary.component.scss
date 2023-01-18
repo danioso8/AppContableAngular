@@ -1,0 +1,47 @@
+.navbar{
+    box-shadow: 10px 10px 10px  ;
+    font-size: larger;
+}
+.navbar h1{
+    color: #0a0a0a;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    font-style: italic;
+    text-shadow: 5px 5px 5px rgba($color: #e94c4c, $alpha: 1.0);
+    
+    
+   
+}
+
+small{
+    position: absolute;  
+    text-align: left;
+    margin-top: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: blueviolet;
+}
+.navbar a{
+    text-decoration: none;
+    color: #0a0a0a;
+    padding: 5px;
+    margin: 5px;
+}
+.navbar .btn{
+    background: rgb(165, 39, 238);
+    transition: all 0.40s;
+    padding: 20px 20px 20px 20px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    width: 150px;
+    color: aliceblue;
+    opacity: 60%;
+
+}
+
+.navbar .btn:hover{
+    
+    color: aliceblue;
+    font-weight: bold;
+}

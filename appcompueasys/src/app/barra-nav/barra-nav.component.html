@@ -1,0 +1,25 @@
+<nav class="nav">
+  <div class="tittle"><i><a href=""><span>{{tittle}}</span></a></i></div>
+
+
+  <button #cliente (click)="openClient()" [ngClass]="{'buttonNegrita': client === true}">Clientes</button>
+  <button id="produc" (click)="openProduct()" [ngClass]="{'buttonNegrita': product=== true}">Productos</button>
+  <button id="factura" (click)="openFactura()" [ngClass]="{'buttonNegrita': factura== true}">Facturacion</button>
+  <button id="empleados" (click)="openEmpleados()" [ngClass]="{'buttonNegrita': empleados== true}">Empleados</button>
+  <button id="inventario" (click)="openInventario()" [ngClass]="{'buttonNegrita': inventario== true}">Inventario</button>
+  <button id="configuracion" (click)="openConfiguracion()" [ngClass]="{'buttonNegrita': configuracion== true}">Configuracion</button>
+</nav>
+<body>
+  
+  <router-outlet>
+  
+    <div *ngIf="client"><app-usuarios></app-usuarios></div>
+    <div *ngif="product"><app-productos></app-productos></div>
+    <div *ngIf="factura"><app-factura></app-factura></div>
+    <div *ngIf="empleados"><app-empleados></app-empleados></div>
+    <div *ngIf="configuracion"><app-configuracion></app-configuracion></div>
+    <div *ngIf="inventario"><app-inventario></app-inventario></div>
+  
+  </router-outlet>
+
+</body>  
