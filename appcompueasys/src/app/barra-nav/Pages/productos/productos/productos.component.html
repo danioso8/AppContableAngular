@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">IdCategoria</th>
+          <th scope="col">Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let productos of Product">
+          <th scope="row">{{productos.id}}</th>
+          <td>{{productos.name}}</td>
+          <td>{{productos.precio}}</td>
+          <td>@{{productos.descripcion}}</td>
+          <td>{{productos.categoriyId}}</td>
+          <td>@{{productos.stock}}</td>
+        </tr>
+  
+      </tbody>
+    </table>
+  </div>
+  
+

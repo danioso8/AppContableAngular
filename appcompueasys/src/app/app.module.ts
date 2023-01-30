@@ -1,4 +1,14 @@
 
+//components
+import { AppComponent } from './app.component';
+import { BarraNavComponent } from './barra-nav/barra-nav.component';
+
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
+import { FacturaComponent } from './barra-nav/Pages/factura/factura.component';
+import { ProductosComponent } from './barra-nav/Pages/productos/productos/productos.component';
+
 //(rm -rf node_module) #elimiar todos los modulos si no funciona el httpClient y volver a instalar (npm i)
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,23 +25,17 @@ import { MatCardModule} from '@angular/material/card';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatTableModule} from '@angular/material/table';
 
-//components
-import { AppComponent } from './app.component';
-import { BarraNavComponent } from './barra-nav/barra-nav.component';
-import { ProductosComponent } from './productos/productos.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
+
 
 
 import { HomeComponent } from './Home/home/home.component';
 import { BarPrimaryComponent } from './bar-primary/bar-primary.component';
-import { DialogComponent } from './dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FacturaComponent } from './factura/factura.component';
-import { EmpleadosComponent } from './empleados/empleados.component';
+
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 import { InventarioComponent } from './inventario/inventario.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { JWT_OPTIONS } from '@auth0/angular-jwt';
 
 
 
@@ -39,17 +43,13 @@ import { InventarioComponent } from './inventario/inventario.component';
   declarations: [
     AppComponent,
     BarraNavComponent,
-    ProductosComponent,
     UsuariosComponent,
     FooterComponent,
-    LoginComponent,
-
-   
+        
     HomeComponent,
     BarPrimaryComponent,
-    DialogComponent,
     FacturaComponent,
-    EmpleadosComponent,
+    
     ConfiguracionComponent,
     InventarioComponent,
   ],
@@ -68,8 +68,11 @@ import { InventarioComponent } from './inventario/inventario.component';
     MatTableModule
    ],
 
-   
-  providers: [],
+
+  providers: [
+    {provide:JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService
+  ],
   bootstrap: [AppComponent],
 
 

@@ -13,121 +13,129 @@
 <body>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3 text-light" href="index.html">Compueasys</a>
+        <a class="navbar-brand ps-3 text-light" routerLink="/clientes">Compueasys</a>
+        
+        
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 text-light order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
+        
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
+                <a class="navbar-brand ps-3 text-light" ></a>
             </div>
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
+                
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="">Usuario</a></li>
+                    <li><a class="dropdown-item" href="">{{name}}</a></li>
                     <li><a class="dropdown-item" href="#!">Configuarcion</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#!">Cerrar Sesion</a></li>
+                    <li><button class="dropdown-item" (click)="CerrarSeion()">Cerrar Sesion</button></li>
                 </ul>
             </li>
         </ul>
     </nav>
+
+
     <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Resumen</div>
-                        <a class="nav-link" href=" ">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Dashboard
-                        </a>
-                        <hr/>
-                        <div class="sb-sidenav-menu-heading">Interfaces</div>
+      <div id="layoutSidenav_nav">
+          <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+              <div class="sb-sidenav-menu">
+                  <div class="nav">
+                      <div class="sb-sidenav-menu-heading">Resumen</div>
+                      <a class="nav-link"  routerLinkActive="active"  routerLink="/clientes">
+                          <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                          Dashboard
+                      </a>
+                      <hr/>
+                      <div class="sb-sidenav-menu-heading">Interfaces</div>
 
-                        <a class="nav-link" routerLink="/facturas">
-                            <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
-                            Facturas
-                        </a>
-                        <a class="nav-link" href="/clientes ">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                            Clientes
-                        </a>
+                      <a class="nav-link" routerLinkActive="active"  routerLink="/facturas">
+                          <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
+                          Facturas
+                      </a>
+                      <a class="nav-link" routerLinkActive="active"  routerLink='/clientes' (click)="openClient()">
+                          <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                          Clientes
+                      </a>
 
-                        <hr/>
-
-
-
-                        <div class="sb-sidenav-menu-heading">Empresa</div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsEmpresa" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
-                            Configuracion
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayoutsEmpresa" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Datos Empresa</a>
-                                <a class="nav-link" href="">Ingresar Empleados</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Nominas</a>
-
-                            </nav>
-                        </div>
-                        <hr/>
-                        <div class="sb-sidenav-menu-heading">Mantenimiento</div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
-                            Herramientas
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Paises</a>
-                                <a class="nav-link" href="">Departamentos</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Ciudades</a>
-
-                                <a class="nav-link" href="layout-sidenav-light.html">Tipo de Pago</a>
-                            </nav>
-                        </div>
+                      <hr/>
 
 
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsproducto" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
-                            Inventario
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayoutsproducto" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href=" ">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
-                                    Productos
-                                </a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Categotias Productos</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Marca Producto</a>
 
-                            </nav>
-                        </div>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tables
-                        </a>
-                    </div>
-                </div>
+                      <div class="sb-sidenav-menu-heading">Empresa</div>
+                      <a class="nav-link collapsed" routerLinkActive="active"   href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsEmpresa" aria-expanded="false" aria-controls="collapseLayouts">
+                          <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
+                          Configuracion
+                          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                      </a>
+                      <div class="collapse" id="collapseLayoutsEmpresa" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                          <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" routerLinkActive="active"  href="layout-static.html">Datos Empresa</a>
+                              <a class="nav-link" routerLinkActive="active"   routerLinkActive="active" href="">Ingresar Empleados</a>
+                              <a class="nav-link" routerLinkActive="active"  href="layout-sidenav-light.html">Nominas</a>
 
-            </nav>
-        </div>
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                  <router-outlet>
+                          </nav>
+                      </div>
+                      <hr/>
+                      <div class="sb-sidenav-menu-heading">Mantenimiento</div>
+                      <a class="nav-link collapsed" routerLinkActive="active"  href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                          <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
+                          Herramientas
+                          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                      </a>
+                      <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                          <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" routerLinkActive="active"  href="layout-static.html">Paises</a>
+                              <a class="nav-link" routerLinkActive="active"  href="">Departamentos</a>
+                              <a class="nav-link" routerLinkActive="active"  href="layout-sidenav-light.html">Ciudades</a>
 
-                  </router-outlet>
-                </div>
-            </main>
+                              <a class="nav-link" routerLinkActive="active"  href="layout-sidenav-light.html">Tipo de Pago</a>
+                          </nav>
+                      </div>
 
-        </div>
-    </div>
+
+                      <a class="nav-link collapsed" routerLinkActive="active"  href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsproducto" aria-expanded="false" aria-controls="collapseLayouts">
+                          <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
+                          Inventario
+                          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                      </a>
+                      <div class="collapse" id="collapseLayoutsproducto" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                          <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" routerLinkActive="active"  routerLink="/productos">
+                                  <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
+                                  Productos
+                              </a>
+                              <a class="nav-link"  routerLinkActive="active" href="layout-sidenav-light.html">Categotias Productos</a>
+                              <a class="nav-link"  routerLinkActive="active" href="layout-sidenav-light.html">Marca Producto</a>
+
+                          </nav>
+                      </div>
+                      <a class="nav-link"  routerLinkActive="active" href="tables.html">
+                          <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                          Tables
+                      </a>
+                  </div>
+              </div>
+
+          </nav>
+      </div>
+      <div id="layoutSidenav_content">
+          <main>
+              <div class="container-fluid px-4">
+                
+              </div>
+          </main>
+
+      </div>
+  </div>
+
+
+
 
 </body>
 </html>

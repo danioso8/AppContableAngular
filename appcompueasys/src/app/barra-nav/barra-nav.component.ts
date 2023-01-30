@@ -1,7 +1,9 @@
+import { AutenticatorService } from '../auth/services/login/autenticator.service';
 import { style } from '@angular/animations';
 import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { HasElementRef } from '@angular/material/core/common-behaviors/color';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, NgModel, RequiredValidator, Validators } from '@angular/forms';
+import { Router, RouterModule, RouterLink, RouterLinkActive, ActivatedRouteSnapshot, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-barra-nav',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./barra-nav.component.scss']
 })
 export class BarraNavComponent implements OnInit {
-
+  name!:string;
   tittle:string;
   product:Boolean;
   client:boolean;
@@ -20,7 +22,14 @@ export class BarraNavComponent implements OnInit {
 
 
 
-  constructor(private ruter: Router, private Renderer2: Renderer2) {
+  constructor(
+    private router: Router, 
+    private readonly routerActiv: ActivatedRoute, 
+    private Renderer2: Renderer2,
+    private auth: AutenticatorService 
+       
+    ) 
+    {
     this.tittle="CompuEasys"
     this.product=false;
     this.client=false;
@@ -33,12 +42,19 @@ export class BarraNavComponent implements OnInit {
    }
 
   ngOnInit(): void {
+   this.routerActiv.queryParams.subscribe((params:Params)=>{
+    this.name = params['name'];
+   })
+    
   }
+
+
  showbarra = true;
 
- login(){
-
- }
+ CerrarSeion(){
+  localStorage.removeItem('Token')
+  this.router.navigate(['/login'])
+ };
 
  
 
@@ -98,5 +114,8 @@ export class BarraNavComponent implements OnInit {
   this.configuracion=false;
   this.inventario=true;
  }
+
+
+ 
 
 }

@@ -1,9 +1,9 @@
-import { AutenticatorService } from './../servicios/login/autenticator.service';
+import { AutenticatorService } from './../services/login/autenticator.service';
+import { Login } from '../InterfaceLogin/login';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgModel, RequiredValidator, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { DialogComponent } from '../dialog/dialog.component';
-import { Login } from '../interfaces/login/login';
+
 
 
 
@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
   public myForm!: FormGroup;
 
 
-  constructor(private fb:FormBuilder, private autenticator: AutenticatorService) {
+  constructor(
+    private fb:FormBuilder,
+    private autenticator: AutenticatorService,
+    private router: Router) 
+    {
     this.login=[];
     img:'/appcompueasys/src/assets/Imagenes/CompuEasys.png'
   }
@@ -48,8 +52,14 @@ export class LoginComponent implements OnInit {
 
 
     }else{
-      var token = this.autenticator.singin(this.myForm.value)
-      console.log(token);
+      console.log("primer consol log",this.myForm.value);
+       this.autenticator.singin(this.myForm.value)
+      .subscribe((res:any)=> {
+        console.log(res);
+        localStorage.setItem('Token', res.token)
+        this.router.navigate(['barraNav'],{queryParams:{name: 'Daniel Osorio'}})
+      });
+
 
     }
 
